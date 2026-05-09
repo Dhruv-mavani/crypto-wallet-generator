@@ -137,29 +137,29 @@ export default function App() {
                                 </div>
                             </div>
 
-                            <p className="text-center font-mono text-slate-800 dark:text-orange-200 text-lg leading-loose tracking-wide break-words relative z-0">
-                                {mnemonic}
-                            </p>
-
-                            {!isSeedRevealed && (
+                            {isSeedRevealed ? (
+                                <>
+                                    <p className="text-center font-mono text-slate-800 dark:text-orange-200 text-lg leading-loose tracking-wide break-words relative z-0">
+                                        {mnemonic}
+                                    </p>
+                                    <div className="flex justify-center mt-6 relative z-0">
+                                        <button
+                                            onClick={() => setIsSeedRevealed(false)}
+                                            className="px-6 py-2 bg-slate-100 dark:bg-slate-800/50 text-slate-600 dark:text-slate-400 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors font-bold text-sm flex items-center justify-center gap-2 border border-slate-200 dark:border-slate-700"
+                                        >
+                                            <EyeOff size={16} />
+                                            Hide Seed Phrase
+                                        </button>
+                                    </div>
+                                </>
+                            ) : (
                                 <div 
                                     onClick={() => setIsSeedRevealed(true)}
-                                    className="absolute inset-0 bg-white/70 dark:bg-slate-950/70 backdrop-blur-md flex flex-col items-center justify-center cursor-pointer hover:bg-white/60 dark:hover:bg-slate-950/60 transition-all z-10"
+                                    className="flex flex-col items-center justify-center py-10 cursor-pointer hover:opacity-80 transition-all"
                                 >
-                                    <span className="text-slate-900 dark:text-white font-bold text-xl drop-shadow-md">Click to Reveal Seed Phrase</span>
-                                    <span className="text-slate-700 dark:text-slate-300 text-sm mt-2 font-medium">Anyone with these words can steal your assets.</span>
-                                </div>
-                            )}
-
-                            {isSeedRevealed && (
-                                <div className="flex justify-center mt-6 relative z-0">
-                                    <button
-                                        onClick={() => setIsSeedRevealed(false)}
-                                        className="px-6 py-2 bg-slate-100 dark:bg-slate-800/50 text-slate-600 dark:text-slate-400 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors font-bold text-sm flex items-center justify-center gap-2 border border-slate-200 dark:border-slate-700"
-                                    >
-                                        <EyeOff size={16} />
-                                        Hide Seed Phrase
-                                    </button>
+                                    <EyeOff className="text-slate-400 dark:text-slate-500 mb-3" size={32} />
+                                    <span className="text-slate-900 dark:text-white font-bold text-lg drop-shadow-md">Click to Reveal Seed Phrase</span>
+                                    <span className="text-slate-500 dark:text-slate-400 text-sm mt-1 font-medium">Anyone with these words can steal your assets.</span>
                                 </div>
                             )}
                         </div>
