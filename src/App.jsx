@@ -10,7 +10,7 @@ export default function App() {
         <div className="min-h-screen bg-black text-white p-10">
             <div className="max-w-5xl mx-auto space-y-12">
                 <div className="flex flex-col items-center gap-4">
-                    <h1 className="text-5xl font-black text-orange-600">Dhruv's Wallet Creator</h1>
+                    <h1 className="text-5xl font-black text-orange-600">Create Your Wallet</h1>
                     <button 
                         onClick={() => setMnemonic(generateMnemonic(128))}
                         className="px-8 py-4 bg-white text-black font-black rounded-full hover:bg-orange-600 hover:text-white transition-all"
