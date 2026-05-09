@@ -45,7 +45,7 @@ export const SolWallet = ({ mnemonic, network }: SolWalletProps) => {
 
 
     const refreshBalance = async (address: string) => {
-        const url = network === "mainnet" 
+        const url = network === "mainnet"
             ? `https://solana-mainnet.g.alchemy.com/v2/${import.meta.env.VITE_ALCHEMY_API_KEY}`
             : `https://solana-devnet.g.alchemy.com/v2/${import.meta.env.VITE_ALCHEMY_API_KEY}`;
         const payload = {
@@ -126,7 +126,7 @@ const SolWalletRow = ({ wallet, i, refreshBalance, network, deleteWallet }: { wa
         if (!toAddress || !amount) return;
         setError("");
         setTxHash("");
-        
+
         const numAmount = parseFloat(amount);
         if (isNaN(numAmount) || numAmount <= 0) {
             setError("Please enter a valid amount greater than 0.");
@@ -203,7 +203,7 @@ const SolWalletRow = ({ wallet, i, refreshBalance, network, deleteWallet }: { wa
                     </button>
                 </div>
                 <span className="font-mono text-sm break-all text-slate-700 dark:text-slate-300">
-                    {isVisible ? wallet.secretKey : "••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••"}
+                    {isVisible ? wallet.secretKey : "•••••••••••••••••••••••••••••••••••••••••"}
                 </span>
             </div>
 
@@ -310,7 +310,7 @@ const SolWalletRow = ({ wallet, i, refreshBalance, network, deleteWallet }: { wa
                                     {isSending ? (
                                         <>
                                             <Loader2 className="animate-spin text-blue-200" size={20} />
-                                            <span>Processing...</span>
+                                            <span>Processing</span>
                                         </>
                                     ) : "Confirm Send"}
                                 </button>
@@ -332,13 +332,13 @@ const SolWalletRow = ({ wallet, i, refreshBalance, network, deleteWallet }: { wa
                             Are you absolutely sure you want to remove this wallet? If you haven't backed up the secret key, your funds will be lost forever.
                         </p>
                         <div className="flex gap-3 w-full mt-4">
-                            <button 
+                            <button
                                 onClick={() => setDeleteOpen(false)}
                                 className="flex-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-4 py-2 rounded-lg font-bold hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
                             >
                                 Cancel
                             </button>
-                            <button 
+                            <button
                                 onClick={() => {
                                     setDeleteOpen(false);
                                     deleteWallet(i);
