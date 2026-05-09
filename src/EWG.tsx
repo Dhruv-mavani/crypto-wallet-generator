@@ -71,12 +71,12 @@ export const EthWallet = ({ mnemonic, network }: EthWalletProps) => {
     };
 
     return (
-        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 rounded-2xl shadow-xl transition-colors duration-300">
-            <div className="flex justify-between items-center mb-6">
-                <h2 className="text-2xl font-bold text-blue-400">Ethereum</h2>
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-4 sm:p-6 rounded-2xl shadow-xl transition-colors duration-300">
+            <div className="flex flex-wrap justify-between items-center gap-2 mb-4 sm:mb-6">
+                <h2 className="text-xl sm:text-2xl font-bold text-blue-500">Ethereum</h2>
                 <button
                     onClick={addWallet}
-                    className="bg-blue-600 text-white px-4 py-2 rounded-lg font-bold hover:bg-blue-500 transition-all active:scale-95"
+                    className="bg-blue-600 text-white px-3 sm:px-4 py-1.5 sm:py-2 text-sm sm:text-base rounded-lg font-bold hover:bg-blue-500 transition-all active:scale-95"
                 >
                     Add Wallet
                 </button>
@@ -153,10 +153,10 @@ const EthWalletRow = ({ wallet, i, refreshBalance, network, deleteWallet }: { wa
     };
 
     return (
-        <div className="bg-slate-50 dark:bg-black/40 p-4 rounded-xl border border-slate-200 dark:border-slate-800 flex flex-col gap-3 transition-colors duration-300">
-            <div className="flex justify-between items-center">
+        <div className="bg-slate-50 dark:bg-black/40 p-3 sm:p-4 rounded-xl border border-slate-200 dark:border-slate-800 flex flex-col gap-3 transition-colors duration-300">
+            <div className="flex flex-wrap justify-between items-center gap-2">
                 <span className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Account {i + 1}</span>
-                <div className="flex items-center gap-2">
+                <div className="flex flex-wrap items-center gap-2">
                     <span className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">
                         Balance: {wallet.balance.toFixed(4)} ETH
                     </span>
@@ -204,7 +204,7 @@ const EthWalletRow = ({ wallet, i, refreshBalance, network, deleteWallet }: { wa
             {/* Receive Modal */}
             {receiveOpen && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
-                    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 p-6 rounded-2xl w-full max-w-sm flex flex-col items-center gap-4 animate-in fade-in zoom-in duration-200">
+                    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 p-4 sm:p-6 rounded-2xl w-full max-w-sm flex flex-col items-center gap-4 animate-in fade-in zoom-in duration-200">
                         <div className="w-full flex justify-between items-center mb-2">
                             <h3 className="text-xl font-bold text-slate-900 dark:text-white">Receive ETH</h3>
                             <button onClick={() => setReceiveOpen(false)} className="text-slate-400 hover:text-slate-600 dark:hover:text-white"><X size={24} /></button>
@@ -228,7 +228,7 @@ const EthWalletRow = ({ wallet, i, refreshBalance, network, deleteWallet }: { wa
             {/* Send Modal */}
             {sendOpen && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
-                    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 p-6 rounded-2xl w-full max-w-sm flex flex-col gap-4 animate-in fade-in zoom-in duration-200">
+                    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 p-4 sm:p-6 rounded-2xl w-full max-w-sm flex flex-col gap-4 animate-in fade-in zoom-in duration-200">
                         <div className="flex justify-between items-center">
                             <h3 className="text-xl font-bold text-slate-900 dark:text-white">Send ETH {network === "mainnet" ? "(Mainnet)" : "(Sepolia)"}</h3>
                             <button disabled={isSending} onClick={() => { setSendOpen(false); setIsScanning(false); }} className="text-slate-400 hover:text-slate-600 dark:hover:text-white disabled:opacity-50 disabled:cursor-not-allowed"><X size={24} /></button>
@@ -312,8 +312,8 @@ const EthWalletRow = ({ wallet, i, refreshBalance, network, deleteWallet }: { wa
             {/* Delete Modal */}
             {deleteOpen && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
-                    <div className="bg-white dark:bg-slate-900 border border-red-500/30 dark:border-red-500/20 p-6 rounded-2xl w-full max-w-sm flex flex-col items-center gap-4 animate-in fade-in zoom-in duration-200 shadow-2xl">
-                        <div className="w-16 h-16 bg-red-100 dark:bg-red-500/10 rounded-full flex items-center justify-center text-red-500 mb-2">
+                    <div className="bg-white dark:bg-slate-900 border border-red-500/30 dark:border-red-500/20 p-4 sm:p-6 rounded-2xl w-full max-w-sm flex flex-col items-center gap-4 animate-in fade-in zoom-in duration-200 shadow-2xl">
+                        <div className="w-12 h-12 sm:w-16 sm:h-16 bg-red-100 dark:bg-red-500/10 rounded-full flex items-center justify-center text-red-500 mb-2">
                             <AlertTriangle size={32} />
                         </div>
                         <h3 className="text-xl font-bold text-slate-900 dark:text-white text-center">Delete Account?</h3>

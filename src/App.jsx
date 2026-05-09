@@ -34,56 +34,53 @@ export default function App() {
     }, [theme]);
 
     return (
-        <div className={`min-h-screen relative overflow-hidden text-slate-900 dark:text-white p-4 md:p-10 ${theme === 'dark' ? 'bg-[#0f172a]' : 'bg-[#f8fafc]'}`}>
+        <div className={`min-h-screen relative overflow-hidden text-slate-900 dark:text-white p-2 sm:p-4 md:p-10 ${theme === 'dark' ? 'bg-[#0f172a]' : 'bg-[#f8fafc]'}`}>
             
             {/* Ambient Background Blobs */}
             <div className={`absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full mix-blend-multiply dark:mix-blend-color-dodge filter blur-[120px] opacity-50 dark:opacity-20 animate-blob ${theme === 'dark' ? 'bg-indigo-600' : 'bg-purple-300'}`}></div>
             <div className={`absolute top-[20%] right-[-10%] w-[40vw] h-[40vw] rounded-full mix-blend-multiply dark:mix-blend-color-dodge filter blur-[120px] opacity-50 dark:opacity-20 animate-blob animation-delay-2000 ${theme === 'dark' ? 'bg-orange-600' : 'bg-yellow-300'}`}></div>
             <div className={`absolute bottom-[-20%] left-[20%] w-[60vw] h-[60vw] rounded-full mix-blend-multiply dark:mix-blend-color-dodge filter blur-[120px] opacity-50 dark:opacity-20 animate-blob animation-delay-4000 ${theme === 'dark' ? 'bg-cyan-600' : 'bg-blue-300'}`}></div>
 
-            <div className="max-w-5xl mx-auto space-y-12 relative z-10">
+            <div className="w-full max-w-[1600px] mx-auto space-y-8 sm:space-y-12 relative z-10">
                 
                 {/* Premium Control Panel */}
-                <div className="flex flex-col md:flex-row justify-center md:justify-between items-center bg-white/70 dark:bg-slate-900/50 backdrop-blur-xl border border-slate-200 dark:border-slate-800 p-4 rounded-3xl gap-6 shadow-sm">
-                    
-                    <div className="flex flex-col md:flex-row items-center gap-4 w-full md:w-auto justify-center">
-                        {/* Network Toggle */}
-                        <div className="flex bg-slate-100 dark:bg-slate-800/80 p-1.5 rounded-xl border border-slate-200 dark:border-slate-700/50">
-                            <button 
-                                onClick={() => setNetwork("devnet")}
-                                className={`px-5 py-2 text-sm font-bold rounded-lg transition-all ${network === 'devnet' ? 'bg-white dark:bg-slate-700 shadow-sm text-blue-600 dark:text-blue-400' : 'text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-300'}`}
-                            >
-                                Devnet
-                            </button>
-                            <button 
-                                onClick={() => setNetwork("mainnet")}
-                                className={`px-5 py-2 text-sm font-bold rounded-lg transition-all ${network === 'mainnet' ? 'bg-white dark:bg-slate-700 shadow-sm text-blue-600 dark:text-blue-400' : 'text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-300'}`}
-                            >
-                                Mainnet
-                            </button>
-                        </div>
+                <div className="flex flex-row flex-wrap justify-center md:justify-between items-center bg-white/70 dark:bg-slate-900/50 backdrop-blur-xl border border-slate-200 dark:border-slate-800 p-3 sm:p-4 rounded-3xl gap-4 sm:gap-6 shadow-sm">
+                    {/* Network Filter */}
+                    <div className="flex bg-slate-200 dark:bg-slate-800 p-1 rounded-2xl">
+                        <button 
+                            onClick={() => setNetwork("devnet")}
+                            className={`px-2 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${network === "devnet" ? "bg-white dark:bg-slate-700 text-blue-600 dark:text-blue-400 shadow-sm" : "text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-300"}`}
+                        >
+                            Devnet
+                        </button>
+                        <button 
+                            onClick={() => setNetwork("mainnet")}
+                            className={`px-2 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${network === "mainnet" ? "bg-white dark:bg-slate-700 text-blue-600 dark:text-blue-400 shadow-sm" : "text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-300"}`}
+                        >
+                            Mainnet
+                        </button>
+                    </div>
 
-                        {/* Chain Filter */}
-                        <div className="flex bg-slate-100 dark:bg-slate-800/80 p-1.5 rounded-xl border border-slate-200 dark:border-slate-700/50">
-                            <button 
-                                onClick={() => setActiveChain("both")}
-                                className={`px-5 py-2 text-sm font-bold rounded-lg transition-all ${activeChain === 'both' ? 'bg-white dark:bg-slate-700 shadow-sm text-orange-600' : 'text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-300'}`}
-                            >
-                                All Chains
-                            </button>
-                            <button 
-                                onClick={() => setActiveChain("sol")}
-                                className={`px-5 py-2 text-sm font-bold rounded-lg transition-all ${activeChain === 'sol' ? 'bg-white dark:bg-slate-700 shadow-sm text-purple-600' : 'text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-300'}`}
-                            >
-                                Solana
-                            </button>
-                            <button 
-                                onClick={() => setActiveChain("eth")}
-                                className={`px-5 py-2 text-sm font-bold rounded-lg transition-all ${activeChain === 'eth' ? 'bg-white dark:bg-slate-700 shadow-sm text-blue-600' : 'text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-300'}`}
-                            >
-                                Ethereum
-                            </button>
-                        </div>
+                    {/* Chain Filter */}
+                    <div className="flex bg-slate-200 dark:bg-slate-800 p-1 rounded-2xl">
+                        <button 
+                            onClick={() => setActiveChain("all")}
+                            className={`px-2 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${activeChain === "all" ? "bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-sm" : "text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-300"}`}
+                        >
+                            All
+                        </button>
+                        <button 
+                            onClick={() => setActiveChain("sol")}
+                            className={`px-2 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${activeChain === "sol" ? "bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-sm" : "text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-300"}`}
+                        >
+                            Solana
+                        </button>
+                        <button 
+                            onClick={() => setActiveChain("eth")}
+                            className={`px-2 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${activeChain === "eth" ? "bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-sm" : "text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-300"}`}
+                        >
+                            Ethereum
+                        </button>
                     </div>
 
                     {/* Theme Toggle (Mind-Boggling) */}
@@ -111,7 +108,13 @@ export default function App() {
                 </div>
 
                 <div className="flex flex-col items-center gap-4">
-                    <h1 className="text-5xl font-black text-orange-600 dark:text-orange-500">Create Your Wallet</h1>
+                    <h1 className="text-2xl sm:text-4xl md:text-5xl xl:text-6xl font-black text-center flex justify-center items-center gap-2 sm:gap-3 tracking-tight">
+                        <Sparkles className="text-orange-500 w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10" />
+                        OmniWallet
+                    </h1>
+                    <p className="text-slate-500 dark:text-slate-400 text-center max-w-2xl mx-auto text-xs sm:text-sm md:text-lg px-2">
+                        Your secure, multi-chain crypto generator. Instantly create and manage wallets across Solana and Ethereum.
+                    </p>
                     <button 
                         onClick={() => {
                             setMnemonic(generateMnemonic(128));
@@ -161,7 +164,7 @@ export default function App() {
                             )}
                         </div>
                         
-                        <div className={`grid grid-cols-1 gap-8 ${activeChain === 'both' ? 'lg:grid-cols-2' : ''}`}>
+                        <div className={`grid grid-cols-1 gap-4 sm:gap-8 ${activeChain === 'both' ? 'lg:grid-cols-2 2xl:grid-cols-2' : ''}`}>
                             <div className={`transition-all duration-500 ${activeChain === "eth" ? "hidden" : "block animate-in fade-in zoom-in-95"}`}>
                                 <SolWallet mnemonic={mnemonic} network={network} />
                             </div>
