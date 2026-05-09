@@ -131,9 +131,9 @@ export default function App() {
                         <div className="relative overflow-hidden bg-white dark:bg-slate-900/30 border border-slate-200 dark:border-slate-800 p-8 rounded-3xl mb-8 shadow-sm transition-colors duration-300">
                             
                             <div className="flex flex-col items-center justify-center gap-2 mb-4">
-                                <div className="flex items-center gap-2 text-red-500 font-bold bg-red-50 dark:bg-red-500/10 px-4 py-2 rounded-full border border-red-200 dark:border-red-500/20">
+                                <div className="flex items-center justify-center gap-2 text-red-500 font-bold bg-red-50 dark:bg-red-500/10 px-4 py-2 rounded-full border border-red-200 dark:border-red-500/20 max-w-[430px] w-full">
                                     <AlertTriangle size={20} />
-                                    <span className="text-sm">WARNING: Never share your seed phrase!</span>
+                                    <span className="text-xs sm:text-sm text-center">WARNING: Never share your seed phrase!</span>
                                 </div>
                             </div>
 
